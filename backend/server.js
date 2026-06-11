@@ -1,0 +1,33 @@
+const express = require("express");
+const cors = require("cors");
+const jobRoutes = require("./routes/jobRoutes");
+const applicationRoutes = require("./routes/applicationRoutes");
+const mongoose = require("mongoose");
+require("dotenv").config();
+
+const authRoutes = require("./routes/authRoutes");
+const companyRoutes = require("./routes/companyRoutes");
+
+const app = express();
+
+app.use(cors());
+app.use(express.json());
+
+app.use(express.json());
+
+mongoose.connect(process.env.MONGO_URL)
+.then(() => {
+    console.log("MongoDB Connected");
+})
+.catch((err) => {
+    console.log(err);
+});
+
+app.use("/api/auth", authRoutes);
+app.use("/api/jobs", jobRoutes);
+app.use("/api/companies", companyRoutes);
+app.use("/api/applications", applicationRoutes);
+
+app.listen(5000, () => {
+    console.log("Server running on port 5000");
+});
