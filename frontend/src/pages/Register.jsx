@@ -22,7 +22,7 @@ function Register() {
       );
 
       alert(res.data.message);
-      window.location.href = "/login";
+      // window.location.href = "/login";
 
       setName("");
       setEmail("");
