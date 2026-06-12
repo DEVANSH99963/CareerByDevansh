@@ -26,6 +26,9 @@ mongoose.connect(process.env.MONGO_URL)
 app.use("/api/auth", authRoutes);
 app.use("/api/jobs", jobRoutes);
 app.use("/api/companies", companyRoutes);
+app.get("/", (req, res) => {
+  res.send("CareerByDevansh Backend Running");
+});
 app.use("/api/applications", applicationRoutes);
 
 const PORT = process.env.PORT || 5000;
