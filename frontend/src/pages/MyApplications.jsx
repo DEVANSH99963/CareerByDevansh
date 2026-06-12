@@ -6,7 +6,7 @@ function MyApplications() {
 
   useEffect(() => {
     axios
-  .get("http://localhost:5000/api/applications", {
+  .get("https://careerbydevansh.onrender.com/api/applications", {
     headers: {
       Authorization: `Bearer ${localStorage.getItem("token")}`,
     },

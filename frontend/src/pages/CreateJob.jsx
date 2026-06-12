@@ -15,7 +15,7 @@ const handleSubmit = async (e) => {
 
   try {
     await axios.post(
-      "http://localhost:5000/api/jobs",
+      "https://careerbydevansh.onrender.com/api/jobs",
       {
         title,
         company,

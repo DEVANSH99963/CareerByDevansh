@@ -20,7 +20,7 @@ function Dashboard() {
     }
 
 axios
-  .get("http://localhost:5000/api/jobs")
+  .get("https://careerbydevansh.onrender.com/api/jobs")
   .then((res) => {
     console.log("Jobs API:", res.data);
     setJobs(res.data);
@@ -31,7 +31,7 @@ axios
 
 if (role === "student") {
   axios
-    .get("http://localhost:5000/api/applications", {
+    .get("https://careerbydevansh.onrender.com/api/applications", {
       headers: {
         Authorization: `Bearer ${localStorage.getItem("token")}`,
       },
@@ -59,7 +59,7 @@ if (role === "student") {
   const applyJob = async (jobId) => {
     try {
       const res = await axios.post(
-        "http://localhost:5000/api/applications",
+        "https://careerbydevansh.onrender.com/api/applications",
         {
           userId: userId,
           jobId: jobId,
@@ -82,7 +82,7 @@ if (role === "student") {
   const deleteJob = async (id) => {
     try {
       await axios.delete(
-        `http://localhost:5000/api/jobs/${id}`,
+        `https://careerbydevansh.onrender.com/api/jobs/${id}`,
         {
           headers: {
             Authorization: `Bearer ${localStorage.getItem(
