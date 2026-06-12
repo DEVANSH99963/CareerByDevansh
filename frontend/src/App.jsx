@@ -1,6 +1,4 @@
 import { Routes, Route, Link } from "react-router-dom";
-import { useState, useEffect } from "react";
-
 
 import Home from "./pages/Home";
 import Login from "./pages/Login";
@@ -13,12 +11,7 @@ import Profile from "./pages/Profile";
 import "./App.css";
 
 function App() {
-  // const role = localStorage.getItem("role");
-  const [role, setRole] = useState("");
-
-useEffect(() => {
-  setRole(localStorage.getItem("role"));
-}, []);
+  const role = localStorage.getItem("role");
 
   return (
     <>
@@ -27,18 +20,29 @@ useEffect(() => {
 
         <div className="nav-links">
           <Link to="/">Home</Link>
-          <Link to="/login">Login</Link>
-          <Link to="/register">Register</Link>
-          <Link to="/dashboard">Dashboard</Link>
 
-          {role === "recruiter" && (
-            <Link to="/create-job">Create Job</Link>
-          ) }
+          {!role && (
+            <>
+              <Link to="/login">Login</Link>
+              <Link to="/register">Register</Link>
+            </>
+          )}
 
           {role === "student" && (
-            <Link to="/applications">My Applications</Link>
-          ) }  
-          <Link to="/profile">Profile</Link>
+            <>
+              <Link to="/dashboard">Dashboard</Link>
+              <Link to="/applications">My Applications</Link>
+              <Link to="/profile">Profile</Link>
+            </>
+          )}
+
+          {role === "recruiter" && (
+            <>
+              <Link to="/dashboard">Dashboard</Link>
+              <Link to="/create-job">Create Job</Link>
+              <Link to="/profile">Profile</Link>
+            </>
+          )}
         </div>
       </div>
 

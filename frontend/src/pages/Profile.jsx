@@ -1,7 +1,15 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function Profile() {
   const [user, setUser] = useState(null);
+  const navigate = useNavigate();
+
+  const logout = () =>{
+    localStorage.clear();
+    navigate("/login");
+    window.location.reload();
+  };
 
   useEffect(() => {
     const storedUser = JSON.parse(
@@ -34,8 +42,16 @@ function Profile() {
           ?"Student"
         :"Recruiter"}
         </p>
+                <button
+          
+          className="logout-btn"
+          onClick={logout}
+        >
+          Logout
+        </button>
       </div>
     </div>
+    
   );
 }
 

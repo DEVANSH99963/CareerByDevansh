@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
 function Register() {
@@ -6,6 +7,8 @@ function Register() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [role, setRole] = useState("student");
+
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -22,59 +25,60 @@ function Register() {
       );
 
       alert(res.data.message);
-      // window.location.href = "/login";
 
       setName("");
       setEmail("");
       setPassword("");
       setRole("student");
+
+      navigate("/login");
     } catch (error) {
       alert(error.response?.data?.message || "Error");
     }
   };
 
-return (
-  <div className="register-container">
-    <div className="register-card">
-      <h2>Register</h2>
+  return (
+    <div className="register-container">
+      <div className="register-card">
+        <h2>Register</h2>
 
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          placeholder="Enter Name"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-        />
+        <form onSubmit={handleSubmit}>
+          <input
+            type="text"
+            placeholder="Enter Name"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+          />
 
-        <input
-          type="email"
-          placeholder="Enter Email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
+          <input
+            type="email"
+            placeholder="Enter Email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
 
-        <input
-          type="password"
-          placeholder="Enter Password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
+          <input
+            type="password"
+            placeholder="Enter Password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
 
-        <select
-          value={role}
-          onChange={(e) => setRole(e.target.value)}
-        >
-          <option value="student">Student</option>
-          <option value="recruiter">Recruiter</option>
-        </select>
+          <select
+            value={role}
+            onChange={(e) => setRole(e.target.value)}
+          >
+            <option value="student">Student</option>
+            <option value="recruiter">Recruiter</option>
+          </select>
 
-        <button type="submit">
-          Register
-        </button>
-      </form>
+          <button type="submit">
+            Register
+          </button>
+        </form>
+      </div>
     </div>
-  </div>
-);
+  );
 }
 
 export default Register;

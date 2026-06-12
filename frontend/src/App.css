@@ -67,22 +67,21 @@ body{
   margin-bottom:30px;
 }
 
-.logout-btn{
-  background:linear-gradient(
-    45deg,
-    #ef4444,
-    #dc2626
-  );
-  color:white;
-  border:none;
-  padding:12px 22px;
-  border-radius:10px;
-  transition: 0.3s;
-  cursor:pointer;
-  font-weight:bold;
+.logout-btn {
+  margin-top: 20px;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 8px;
+  background: #ff4d4d;
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  width: 100%;
 }
-.logout-btn:hover{
-  transform: translateY(-2px);
+
+.logout-btn:hover {
+  opacity: 0.9;
 }
 
 .job-container{

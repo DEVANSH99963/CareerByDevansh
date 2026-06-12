@@ -49,12 +49,7 @@ if (role === "student") {
 }
   }, [navigate]);
 
-  const logout = () => {
-    localStorage.removeItem("token");
-    localStorage.removeItem("role");
-    localStorage.removeItem("user");
-    navigate("/login");
-  };
+
 
   const applyJob = async (jobId) => {
     try {
@@ -127,12 +122,7 @@ const filteredJobs = jobs.filter((job) => {
       <div className="dashboard-header">
         <h2>Available Jobs</h2>
 
-        <button
-          onClick={logout}
-          className="logout-btn"
-        >
-          Logout
-        </button>
+
       </div>
 
       <input
