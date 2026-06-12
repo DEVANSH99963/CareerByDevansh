@@ -12,7 +12,7 @@ function Register() {
 
     try {
       const res = await axios.post(
-        "https://careerbydevansh.onrender.com/auth/register",
+        "https://careerbydevansh.onrender.com/api/auth/register",
         {
           name,
           email,
